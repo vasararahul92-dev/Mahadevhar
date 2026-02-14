@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mahashivratri Divine</title>
+
+<style>
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Segoe UI, sans-serif;
+}
+
+body{
+background:linear-gradient(to bottom,#e0f7ff,#ffffff);
+overflow:hidden;
+color:black;
+}
+
+/* Flower Rain */
+.flower{
+position:fixed;
+top:-10px;
+font-size:20px;
+animation:fall linear infinite;
+z-index:0;
+}
+
+@keyframes fall{
+to{ transform:translateY(110vh); }
+}
+
+/* Trishul Floating Effect */
+.trishul{
+position:fixed;
+font-size:30px;
+animation:floatTrishul 6s ease-in-out infinite;
+opacity:0.2;
+}
+
+.trishul:nth-of-type(1){ top:10%; left:5%; }
+.trishul:nth-of-type(2){ top:70%; left:80%; }
+.trishul:nth-of-type(3){ top:40%; left:50%; }
+
+@keyframes floatTrishul{
+0%,100%{transform:translateY(0);}
+50%{transform:translateY(-20px);}
+}
+
+.page{
+width:100%;
+height:100vh;
+display:none;
+justify-content:center;
+align-items:center;
+flex-direction:column;
+text-align:center;
+position:absolute;
+padding:20px;
+animation:fade 1s ease-in-out;
+z-index:1;
+}
+
+.active{ display:flex; }
+
+@keyframes fade{
+from{opacity:0;}
+to{opacity:1;}
+}
+
+h1{
+font-size:28px;
+margin-bottom:20px;
+text-shadow:0 0 10px #00bfff;
+}
+
+.divine-box{
+padding:30px;
+border-radius:25px;
+background:white;
+box-shadow:0 0 35px #00bfff;
+animation:float 4s ease-in-out infinite;
+max-width:320px;
+}
+
+@keyframes float{
+0%,100%{transform:translateY(0);}
+50%{transform:translateY(-12px);}
+}
+
+.mantra{
+font-size:20px;
+font-weight:bold;
+line-height:1.6;
+}
+
+p{
+font-size:18px;
+line-height:1.6;
+}
+
+button{
+padding:12px 25px;
+border:none;
+border-radius:30px;
+background:black;
+color:white;
+font-size:16px;
+cursor:pointer;
+margin-top:25px;
+}
+
+.next{
+position:absolute;
+bottom:20px;
+}
+</style>
+</head>
+
+<body>
+
+<!-- 🔊 Om Chanting Audio -->
+<audio autoplay loop>
+  <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
+</audio>
+
+<!-- Trishul Icons -->
+<div class="trishul">🔱</div>
+<div class="trishul">🔱</div>
+<div class="trishul">🔱</div>
+
+<!-- Flower Generator -->
+<script>
+for(let i=0;i<30;i++){
+let flower=document.createElement("div");
+flower.className="flower";
+flower.innerHTML="🌸";
+flower.style.left=Math.random()*100+"vw";
+flower.style.animationDuration=(3+Math.random()*5)+"s";
+document.body.appendChild(flower);
+}
+</script>
+
+<!-- Page 1 -->
+<div class="page active" id="page1">
+<h1>🕉️ Mahashivratri Special 🕉️</h1>
+<div class="divine-box">
+<p class="mantra">
+Namah Parvati Pataye<br>
+Har Har Mahadev 🙏
+</p>
+</div>
+<button class="next" onclick="nextPage()">Next ➜</button>
+</div>
+
+<!-- Page 2 -->
+<div class="page" id="page2">
+<h1>🔱 Shiv Shakti Blessings 🔱</h1>
+<div class="divine-box">
+<p>
+Mahadev ka ashirwad tumhari zindagi me<br>
+shanti, safalta aur khushiyan laaye ✨<br><br>
+Har din ho pavitra aur roshan 💙
+</p>
+</div>
+<button class="next" onclick="nextPage()">Next ➜</button>
+</div>
+
+<!-- Page 3 -->
+<div class="page" id="page3">
+<h1>💍 Divine Love of Shiv-Parvati 💍</h1>
+<div class="divine-box">
+<p>
+Bhagavan Shiv ❤️ Mata Parvati<br>
+sacha prem, tapasya aur vishwas ka pratik hain 🌸✨<br><br>
+Unka pavitra bandhan sada prerna deta rahe 🙏
+</p>
+</div>
+<button class="next" onclick="nextPage()">Next ➜</button>
+</div>
+
+<!-- Page 4 -->
+<div class="page" id="page4">
+<h1>🙏 Happy Mahashivratri Piyu 💗</h1>
+<div class="divine-box">
+<p class="mantra">
+Mahadev tumhari har manokamna puri kare ✨<br>
+Har Har Mahadev 🙏
+</p>
+</div>
+
+<button onclick="exitSite()">
+Happy Mahashivratri Rahul 🙏💗
+</button>
+</div>
+
+<script>
+let current=1;
+function nextPage(){
+document.getElementById("page"+current).classList.remove("active");
+current++;
+document.getElementById("page"+current).classList.add("active");
+}
+
+function exitSite(){
+window.location.href="https://www.google.com"; 
+// Yaha apna link daal sakte ho
+}
+</script>
+
+</body>
+</html>
